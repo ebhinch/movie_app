@@ -1,3 +1,6 @@
+require "httparty"
+require "pp"
+
 class MoviesController < ApplicationController
 
   before_action :authenticate_user!
@@ -5,4 +8,6 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
   end
+
+
 end
