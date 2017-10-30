@@ -1,7 +1,15 @@
 <h1>Movies Index</h1>
 
 <% @movies.each do |movie| %>
-    <div>Title: <%= @movie.title %> </div>
-    <div> Year Released: <%= @movie.year %> </div>
-    
+
+    <div>
+    <div>Title: <%= movie.title %></div>
+    <div>Rating: <%= movie.rating %></div>
+    <div>Year: <%= movie.release_year %></div>
+    <div><%= link_to 'Remove From Favorites', movie, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+    <br />
+
+
+  </div>
+
 <% end %>
