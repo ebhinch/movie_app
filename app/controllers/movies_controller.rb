@@ -1,4 +1,3 @@
-
 require 'httparty'
 require 'pp'
 
@@ -12,16 +11,12 @@ class MoviesController < ApplicationController
       response = HTTParty.get(url)
       response_body = JSON.parse(response.body)
 
-      movie.title = response_body['Title']
-      movie.release_year = response_body['Year']
-      movie.rating = response_body['Rated']
+      movie.title = response_body["Title"]
+      movie.release_year = response_body["Year"]
+      movie.rating = response_body["Rated"]
       movie
     end
   end
   
-    def destroy
-      FavoriteMovie.find_by(user_id: current_user.id, movie_id: @movie.id).delete
-      redirect_to movies_url, notice: 'Movie was successfully destroyed.'
-    end
   
   end
